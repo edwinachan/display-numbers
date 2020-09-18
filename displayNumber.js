@@ -12,10 +12,10 @@ exports.displayNumber = input => {
         numbersToPrint.push(numbers[number]);
     });
 
-    numbersToPrint.forEach(segment => {
-        rowOne.push(segment[0]);
-        rowTwo.push(segment[1]);
-        rowThree.push(segment[2]);
+    numbersToPrint.forEach(numberPart => {
+        rowOne.push(numberPart[0]);
+        rowTwo.push(numberPart[1]);
+        rowThree.push(numberPart[2]);
     });
 
     let result = rowOne.join('') + '\n' + rowTwo.join('') + '\n' + rowThree.join('');
