@@ -14,13 +14,7 @@ exports.displayNumber = input => {
 
     numbersToPrint.forEach(segment => {
         rowOne.push(segment[0]);
-    });
-
-    numbersToPrint.forEach(segment => {
         rowTwo.push(segment[1]);
-    });
-
-    numbersToPrint.forEach(segment => {
         rowThree.push(segment[2]);
     });
 
