@@ -1,7 +1,6 @@
-const { displayNumber: displayNumber } = require('./displayNumber')
+const { displayNumber: displayNumber } = require('./displaynumber')
 
-console.log('What number would you like to print?');
+const input = process.argv.slice(2)[0];
+const height = process.argv.slice(2)[1];
 
-process.stdin.once('data', (input) => {
-    console.log(displayNumber(input));
-});
+console.log(displayNumber(input, height));

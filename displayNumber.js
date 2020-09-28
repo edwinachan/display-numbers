@@ -1,24 +1,28 @@
 const numbers = require('./numbers');
+const { updateHeight: updateHeight } = require('./updateheight')
+const { buildResult: buildResult } = require('./buildresult')
+const { generateRows: generateRows } = require('./generaterows')
 
-let numbersToPrint = [];
-let rowOne = [];
-let rowTwo = [];
-let rowThree = [];
-
-exports.displayNumber = input => {
-    const convertedInput = input.toString().trim().split('');
-
+exports.displayNumber = (input, height) => {
+    let numbersToPrint = [];
+    let convertedInput = input.split('')
+    let modifiedNumbers = [];
+    let result = '';
     convertedInput.forEach(number => {
-        numbersToPrint.push(numbers[number]);
-    });
+        numbersToPrint.push(numbers[number])
+    })
 
-    numbersToPrint.forEach(numberPart => {
-        rowOne.push(numberPart[0]);
-        rowTwo.push(numberPart[1]);
-        rowThree.push(numberPart[2]);
-    });
+    numbersToPrint.forEach((numberPart) => {
+        modifiedNumbers.push(updateHeight(numberPart, height))
+    })
+    
+    let rows = generateRows(height);
 
-    let result = rowOne.join('') + '\n' + rowTwo.join('') + '\n' + rowThree.join('');
+    let rawResult = buildResult(modifiedNumbers, rows)
+    
+    rawResult.forEach(row => {
+        result += row.join('') + '\n'
+    })
 
-    return result
+    return result 
 }
