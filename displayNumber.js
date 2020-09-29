@@ -3,22 +3,24 @@ const { updateHeight: updateHeight } = require('./updateheight')
 const { buildResult: buildResult } = require('./buildresult')
 const { generateRows: generateRows } = require('./generaterows')
 
+function convertInputToSegments (input) {
+    let segments = [];
+    let inputSplit = input.split('');
+    inputSplit.forEach(number => {
+        segments.push(numbers[number])
+    })
+    return segments;
+}
 exports.displayNumber = (input, height) => {
-    let numbersToPrint = [];
-    let convertedInput = input.split('')
-    let modifiedNumbers = [];
     let result = '';
-    convertedInput.forEach(number => {
-        numbersToPrint.push(numbers[number])
-    })
+    
+    let numbersToPrint = convertInputToSegments(input);
 
-    numbersToPrint.forEach((numberPart) => {
-        modifiedNumbers.push(updateHeight(numberPart, height))
-    })
+    let numbersWithUpdatedHeight = updateHeight(numbersToPrint, height);
     
     let rows = generateRows(height);
 
-    let rawResult = buildResult(modifiedNumbers, rows)
+    let rawResult = buildResult(numbersWithUpdatedHeight, rows)
     
     rawResult.forEach(row => {
         result += row.join('') + '\n'
