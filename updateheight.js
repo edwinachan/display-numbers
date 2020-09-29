@@ -9,7 +9,7 @@ exports.updateHeight = (numberPart, height) => {
         if (part.includes('|')) {
             let duplicateRow = part.slice().replace('_', ' ');
             for (let i = 0; i < height - 1; i++) {
-                modifiedNumberPart.splice(index + indexShift, 0, duplicateRow)
+                updatedNumberPart.splice(index + indexShift, 0, duplicateRow)
             }
             indexShift += (height - 1);
         }
