@@ -4,7 +4,7 @@ const { updateWidth: updateWidth } = require('./updatewidth')
 const { buildResult: buildResult } = require('./buildresult')
 const { generateRows: generateRows } = require('./generaterows')
 
-function convertInputToSegments (input) {
+const convertInputToSegments = input => {
     let segments = [];
     let inputSplit = input.split('');
     inputSplit.forEach(number => {
