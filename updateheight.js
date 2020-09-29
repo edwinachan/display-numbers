@@ -2,7 +2,8 @@ exports.updateHeight = (numbers, height) => {
     let result = [];
     numbers.forEach(numberPart => {
         if (height < 2) {
-            return numberPart
+            result.push(numberPart);
+            return numberPart;
         }
         let updatedNumberPart = numberPart.slice();
         let indexShift = 0;
