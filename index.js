@@ -1,7 +1,4 @@
-const { displayNumber: displayNumber } = require('./displaynumber')
+const { displayTime: displayTime } = require('./displaytime')
 
-const input = process.argv.slice(2)[0];
-const height = process.argv.slice(2)[1];
-const width = process.argv.slice(2)[2];
+console.log(displayTime());
 
-console.log(displayNumber(input, height, width));
