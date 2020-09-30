@@ -8,7 +8,11 @@ const convertInputToSegments = input => {
     let segments = [];
     let inputSplit = input.split('');
     inputSplit.forEach(number => {
-        segments.push(numbers[number])
+        if (number === ':') {
+            segments.push(['    ', '    ', ' :  ']);
+        } else {
+            segments.push(numbers[number])
+        }
     })
     return segments;
 }

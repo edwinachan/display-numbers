@@ -1,4 +1,8 @@
 const { displayTime: displayTime } = require('./displaytime')
 
-console.log(displayTime());
+const logEverySecond = () => {
+    console.log(displayTime());
+    setTimeout(console.clear, 1000)
+}
 
+setInterval(logEverySecond, 1000);

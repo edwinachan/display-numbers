@@ -1,31 +1,18 @@
-const TimeData = require('./timedata');
-
-const buildTime = (hoursSegments, minutesSegments, secondsSegments) => {
-    let rowOne = [];
-    let rowTwo = [];
-    let rowThree = [];
-
-    [hoursSegments, minutesSegments, secondsSegments].forEach(time => {
-        time.forEach(segment => {
-            rowOne += segment[0];
-            rowTwo += segment[1];
-            rowThree += segment[2];
-        })
-    })
-
-    return {
-        rowOne: rowOne,
-        rowTwo: rowTwo,
-        rowThree: rowThree
-    }
-}
+const { displayNumber: displayNumber } = require('./displaynumber')
 
 exports.displayTime = () => {
-    let hoursSegments = TimeData.getHoursSegments();
-    let minutesSegments = TimeData.getMinutesSegments();
-    let secondsSegments = TimeData.getSecondsSegments();
+    const hour = new Date().getHours().toString();
+    const minute = new Date().getMinutes().toString();
+    const seconds = new Date().getSeconds().toString();
+    let timeArr = [hour, minute, seconds];
+    
+    timeArr.forEach((time, index) => {
+        if (time.length < 2) {
+            timeArr[index] = '0'.concat(time);
+        }
+    })
 
-    let time = buildTime(hoursSegments, minutesSegments, secondsSegments);
+    let result = timeArr.join(':')
 
-    return time.rowOne + '\n' + time.rowTwo + '\n'  +time.rowThree;
+    return displayNumber(result, 1, 1)
 }
