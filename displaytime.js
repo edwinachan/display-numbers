@@ -15,9 +15,9 @@ exports.displayTime = () => {
     const seconds = new Date().getSeconds().toString();
     let timeArr = [hour, minute, seconds];
     
-    let time = correctForSingleDigits(timeArr);
+    let timeWithNoSingleDigits = correctForSingleDigits(timeArr);
 
-    let result = time.join(':')
+    let time = timeWithNoSingleDigits.join(':')
 
-    return displayNumber(result, 1, 1)
+    return displayNumber(time, 1, 1)
 }
