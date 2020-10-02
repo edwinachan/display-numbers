@@ -4,6 +4,7 @@ let rowOne = '';
 let rowTwo = '';
 let rowThree = '';
 let scrollRate = 0;
+let rowLength;
 
 const addWhiteSpaces = arr => {
     let whiteSpace = ' '.repeat(10);
@@ -19,19 +20,24 @@ const getTime =() => {
     rowOne = timeArr[0].join('').repeat(3);
     rowTwo = timeArr[1].join('').repeat(3);
     rowThree = timeArr[2].join('').repeat(3);
+    rowLength = rowOne.length;
 };
 
 const scroll = () => {
     let result = '';
-    let logRowOne = rowOne.substring(scrollRate%120) + rowOne.substring(0,scrollRate%120);
-    let logRowTwo = rowTwo.substring(scrollRate%120) + rowTwo.substring(0,scrollRate%120);
-    let logRowThree = rowThree.substring(scrollRate%120) + rowThree.substring(0,scrollRate%120);
+    let logRowOne = rowOne.substring(scrollRate%rowLength) + rowOne.substring(0,scrollRate%rowLength);
+    let logRowTwo = rowTwo.substring(scrollRate%rowLength) + rowTwo.substring(0,scrollRate%rowLength);
+    let logRowThree = rowThree.substring(scrollRate%rowLength) + rowThree.substring(0,scrollRate%rowLength);
     result = logRowOne + '\n' + logRowTwo + '\n' + logRowThree;
     console.log(result)
     scrollRate++
     setTimeout(console.clear, 100)
 }
 
-setInterval(getTime, 1000);
-setInterval(scroll, 100);
+const logScrollingTime = () => {
+    getTime();
+    scroll();
+}
+
+setInterval(logScrollingTime, 100);
 
