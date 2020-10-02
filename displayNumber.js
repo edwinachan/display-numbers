@@ -33,6 +33,5 @@ exports.displayNumber = (input, height, width) => {
         result += row.join('') + '\n'
     })
 
-    // return result
     return resultArr
 }
