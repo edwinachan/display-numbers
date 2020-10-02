@@ -14,7 +14,7 @@ const addWhiteSpaces = arr => {
     })
 }
 
-const getTime =() => {
+const getLongTimeString =() => {
     let timeArr = displayTime();
     addWhiteSpaces(timeArr)
     rowOne = timeArr[0].join('').repeat(3);
@@ -35,7 +35,7 @@ const scroll = () => {
 }
 
 const logScrollingTime = () => {
-    getTime();
+    getLongTimeString();
     scroll();
 }
 
