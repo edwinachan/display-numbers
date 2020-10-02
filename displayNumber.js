@@ -27,11 +27,12 @@ exports.displayNumber = (input, height, width) => {
     
     let rows = generateRows(height);
 
-    let rawResult = buildResult(numbersWithUpdatedWidth, rows)
+    let resultArr = buildResult(numbersWithUpdatedWidth, rows)
     
-    rawResult.forEach(row => {
+    resultArr.forEach(row => {
         result += row.join('') + '\n'
     })
 
-    return result 
+    // return result
+    return resultArr
 }
