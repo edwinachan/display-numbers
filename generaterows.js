@@ -1,5 +1,3 @@
-const { exportSpecifier } = require("@babel/types");
-
 exports.generateRows = height => {
     let rows = [];
     const defaultHeight = 3;
@@ -13,5 +11,5 @@ exports.generateRows = height => {
             rows.push([]);
         }
     }
-    return rows
+    return rows;
 }

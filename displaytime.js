@@ -1,4 +1,4 @@
-const { displayNumber: displayNumber } = require('./displaynumber')
+const { displayNumber: displayNumber } = require('./displaynumber');
 
 const correctForSingleDigits = arr => {
     arr.forEach((time, index) => {
@@ -6,8 +6,8 @@ const correctForSingleDigits = arr => {
             arr[index] = '0'.concat(time);
         }
     })
-    return arr
-};
+    return arr;
+}
 
 exports.displayTime = () => {
     const hour = new Date().getHours().toString();
@@ -17,7 +17,7 @@ exports.displayTime = () => {
     
     let timeWithNoSingleDigits = correctForSingleDigits(timeArr);
 
-    let time = timeWithNoSingleDigits.join(':')
+    let time = timeWithNoSingleDigits.join(':');
 
-    return displayNumber(time, 1, 1)
+    return displayNumber(time, 1, 1);
 }

@@ -5,6 +5,7 @@ exports.updateHeight = (numbers, height) => {
             result.push(numberPart);
             return numberPart;
         }
+
         let updatedNumberPart = numberPart.slice();
         let indexShift = 0;
     
@@ -12,7 +13,7 @@ exports.updateHeight = (numbers, height) => {
             if (part.includes('|')) {
                 let duplicateRow = part.slice().replace('_', ' ');
                 for (let i = 0; i < height - 1; i++) {
-                    updatedNumberPart.splice(index + indexShift, 0, duplicateRow)
+                    updatedNumberPart.splice(index + indexShift, 0, duplicateRow);
                 }
                 indexShift += (height - 1);
             }

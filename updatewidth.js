@@ -15,13 +15,13 @@ exports.updateWidth = (numbers, width) => {
                 for (let i = 0; i < width - 1; i++) {
                     modifiedPart.splice(underscoreIndex, 0, '_');
                 }
-                numberPart.splice(index, 1, modifiedPart.join(''))
+                numberPart.splice(index, 1, modifiedPart.join(''));
             } else {
                 let modifiedPart = part.split('');
                 for (let i = 0; i < width - 1; i++) {
                     modifiedPart.splice(underscoreIndex, 0, ' ');
                 }
-                numberPart.splice(index, 1, modifiedPart.join(''))
+                numberPart.splice(index, 1, modifiedPart.join(''));
             }
         })
         result.push(numberPart);

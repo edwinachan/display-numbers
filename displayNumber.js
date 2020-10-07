@@ -1,8 +1,8 @@
 const numbers = require('./numbers');
-const { updateHeight: updateHeight } = require('./updateheight')
-const { updateWidth: updateWidth } = require('./updatewidth')
-const { buildResult: buildResult } = require('./buildresult')
-const { generateRows: generateRows } = require('./generaterows')
+const { updateHeight: updateHeight } = require('./updateheight');
+const { updateWidth: updateWidth } = require('./updatewidth');
+const { buildResult: buildResult } = require('./buildresult');
+const { generateRows: generateRows } = require('./generaterows');
 
 const convertInputToSegments = input => {
     let segments = [];
@@ -16,6 +16,7 @@ const convertInputToSegments = input => {
     })
     return segments;
 }
+
 exports.displayNumber = (input, height, width) => {
     let result = '';
     
@@ -23,15 +24,15 @@ exports.displayNumber = (input, height, width) => {
 
     let numbersWithUpdatedHeight = updateHeight(numbersToPrint, height);
 
-    let numbersWithUpdatedWidth = updateWidth(numbersWithUpdatedHeight, width);
+    let numbersWithUpdatedWidthAndHeight = updateWidth(numbersWithUpdatedHeight, width);
     
     let rows = generateRows(height);
 
-    let resultArr = buildResult(numbersWithUpdatedWidth, rows)
+    let resultArr = buildResult(numbersWithUpdatedWidthAndHeight, rows);
     
     resultArr.forEach(row => {
-        result += row.join('') + '\n'
+        result += row.join('') + '\n';
     })
 
-    return resultArr
+    return resultArr;
 }
