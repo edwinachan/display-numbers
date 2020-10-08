@@ -1,4 +1,4 @@
-exports.buildResult = (modifiedNumbers, rows) => {
+const buildResult = (modifiedNumbers, rows) => {
     modifiedNumbers.forEach((part) => {
         for (let i = 0; i < rows.length; i++) {
             rows[i].push(part[i]);
@@ -6,3 +6,5 @@ exports.buildResult = (modifiedNumbers, rows) => {
     })
     return rows;
 }
+
+module.exports = buildResult;

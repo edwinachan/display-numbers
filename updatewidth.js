@@ -1,4 +1,4 @@
-exports.updateWidth = (numbers, width) => {
+const updateWidth = (numbers, width) => {
     let result = [];
     numbers.forEach(numberPart => {
         if (width < 2) {
@@ -28,3 +28,5 @@ exports.updateWidth = (numbers, width) => {
     })
     return result;
 }
+
+module.exports = updateWidth;

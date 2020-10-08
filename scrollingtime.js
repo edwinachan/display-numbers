@@ -1,4 +1,4 @@
-const { displayTime: displayTime } = require('./displaytime');
+const timeDisplay = require('./time');
 
 let row1, row2, row3, rowLength;
 let scrollRate = 0;
@@ -12,7 +12,7 @@ const addWhiteSpaces = arr => {
 }
 
 const getLongTimeString = () => {
-    let timeArr = displayTime();
+    let timeArr = timeDisplay();
     addWhiteSpaces(timeArr);
     for (let i = 0; i < timeArr.length; i++) {
         eval(`row${i + 1}  = timeArr[i].join('').repeat(3)`);
@@ -33,7 +33,9 @@ const scroll = () => {
     setTimeout(console.clear, 100);
 }
 
-exports.displayScrollingTime = () => {
+const scrollingTimeDisplay = () => {
     getLongTimeString();
     scroll();
 }
+
+module.exports = scrollingTimeDisplay;

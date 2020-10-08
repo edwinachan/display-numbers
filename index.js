@@ -1,4 +1,5 @@
-const { displayScrollingTime: displayScrollingTime } = require('./displayscrollingtime');
+const scrollingTimeDisplay = require('./scrollingtime');
 
-setInterval(displayScrollingTime, 100);
+setInterval(scrollingTimeDisplay, 100);
+
 

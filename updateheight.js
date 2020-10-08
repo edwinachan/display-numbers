@@ -1,4 +1,4 @@
-exports.updateHeight = (numbers, height) => {
+const updateHeight = (numbers, height) => {
     let result = [];
     numbers.forEach(numberPart => {
         if (height < 2) {
@@ -22,3 +22,5 @@ exports.updateHeight = (numbers, height) => {
     })
     return result;
 }
+
+module.exports = updateHeight;

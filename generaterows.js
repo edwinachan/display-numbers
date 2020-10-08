@@ -1,4 +1,4 @@
-exports.generateRows = height => {
+const generateRows = height => {
     let rows = [];
     const defaultHeight = 3;
 
@@ -13,3 +13,5 @@ exports.generateRows = height => {
     }
     return rows;
 }
+
+module.exports = generateRows;
