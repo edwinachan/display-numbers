@@ -1,4 +1,3 @@
-const { isModuleDeclaration } = require("@babel/types");
 const updateHeight = require('./updateheight');
 const updateWidth = require('./updatewidth');
 const numbers = require('./numbers');
