@@ -19,7 +19,15 @@ const timeDisplay = () => {
 
     let time = timeWithNoSingleDigits.join(':');
 
-    return segmentNumberDisplay(time, 1, 1);
+    const props = {
+        time,
+        size: {
+            height: 1,
+            width: 1
+        }
+    };
+
+    return segmentNumberDisplay(props);
 }
 
 module.exports = timeDisplay;

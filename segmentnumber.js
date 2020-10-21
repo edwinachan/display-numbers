@@ -17,16 +17,16 @@ const convertInputToSegments = input => {
     return segments;
 }
 
-const segmentNumberDisplay = (input, height, width) => {
+const segmentNumberDisplay = (props) => {
         let result = '';
         
-        let numbersToPrint = convertInputToSegments(input);
+        let numbersToPrint = convertInputToSegments(props.time);
     
-        let numbersWithUpdatedHeight = updateHeight(numbersToPrint, height);
+        let numbersWithUpdatedHeight = updateHeight(numbersToPrint, props.height);
     
-        let numbersWithUpdatedWidthAndHeight = updateWidth(numbersWithUpdatedHeight, width);
+        let numbersWithUpdatedWidthAndHeight = updateWidth(numbersWithUpdatedHeight, props.width);
         
-        let rows = generateRows(height);
+        let rows = generateRows(props.height);
     
         let resultArr = buildResult(numbersWithUpdatedWidthAndHeight, rows);
         
