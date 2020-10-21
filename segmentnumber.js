@@ -1,34 +1,15 @@
-const numbers = require('./numbers');
-const updateHeight = require('./updateheight');
-const updateWidth = require('./updatewidth');
+const updateSize = require('./updatesize');
 const buildResult = require('./buildresult');
 const generateRows= require('./generaterows');
 
-const convertInputToSegments = input => {
-    let segments = [];
-    let inputSplit = input.split('');
-    inputSplit.forEach(number => {
-        if (number === ':') {
-            segments.push(['    ', ' .  ', ' .  ']);
-        } else {
-            segments.push(numbers[number])
-        }
-    })
-    return segments;
-}
-
 const segmentNumberDisplay = (props) => {
-        let result = '';
-        
-        let numbersToPrint = convertInputToSegments(props.time);
-    
-        let numbersWithUpdatedHeight = updateHeight(numbersToPrint, props.height);
-    
-        let numbersWithUpdatedWidthAndHeight = updateWidth(numbersWithUpdatedHeight, props.width);
+        let updatedInput = updateSize(props);
         
         let rows = generateRows(props.height);
     
-        let resultArr = buildResult(numbersWithUpdatedWidthAndHeight, rows);
+        let resultArr = buildResult(updatedInput, rows);
+
+        let result = '';
         
         resultArr.forEach(row => {
             result += row.join('') + '\n';
