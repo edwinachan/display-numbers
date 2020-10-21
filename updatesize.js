@@ -1,19 +1,6 @@
 const updateHeight = require('./updateheight');
 const updateWidth = require('./updatewidth');
-const numbers = require('./numbers');
-
-const convertInputToSegments = input => {
-    let segments = [];
-    let inputSplit = input.split('');
-    inputSplit.forEach(number => {
-        if (number === ':') {
-            segments.push(['    ', ' .  ', ' .  ']);
-        } else {
-            segments.push(numbers[number])
-        }
-    })
-    return segments;
-}
+const convertInputToSegments = require('./convertInputToSegments');
 
 const updateSize = props => {
     let input = convertInputToSegments(props.input);
