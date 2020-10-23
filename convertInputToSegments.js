@@ -5,7 +5,7 @@ const convertInputToSegments = input => {
     let inputSplit = input.split('');
     inputSplit.forEach(number => {
         if (number === ':') {
-            segments.push(['    ', ' .  ', ' .  ']);
+            segments.push(['    ', '  . ', '  . ']);
         } else {
             segments.push(numbers[number])
         }

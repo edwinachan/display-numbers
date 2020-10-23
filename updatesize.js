@@ -4,9 +4,9 @@ const convertInputToSegments = require('./convertInputToSegments');
 
 const updateSize = props => {
     let input = convertInputToSegments(props.input);
-    updateHeight(input, props.height);
-    updateWidth(input, props.width);
-    return input;
+    let inputUpdatedHeight = updateHeight(input, props.height);
+    let inputUpdatedWidth = updateWidth(inputUpdatedHeight, props.width);
+    return inputUpdatedWidth;
 };
 
 module.exports = updateSize;

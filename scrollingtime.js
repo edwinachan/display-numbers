@@ -1,7 +1,7 @@
 const timeDisplay = require('./time');
 
-let row1, row2, row3, rowLength;
 let scrollRate = 0;
+let arrToDisplay;
 
 const addWhiteSpaces = arr => {
     let whiteSpace = ' '.repeat(10);
@@ -11,30 +11,32 @@ const addWhiteSpaces = arr => {
     })
 }
 
-const getLongTimeString = () => {
-    let timeArr = timeDisplay();
+const getLongTimeString = (props) => {
+    arrToDisplay = [];
+    timeArr = timeDisplay(props);
     addWhiteSpaces(timeArr);
     for (let i = 0; i < timeArr.length; i++) {
-        eval(`row${i + 1}  = timeArr[i].join('').repeat(3)`);
+        arrToDisplay.push(timeArr[i].join('').repeat(2));
     }
-    rowLength = row1.length;
 }
 
 const scroll = () => {
-    let result = '';
+    let resultArr = [];
+    let rowLength = arrToDisplay[0].length;
     let substringToDisplay = scrollRate % rowLength;
-    let logRow1, logRow2, logRow3;
-    for (let i = 1; i < 4; i++) {
-        eval(`logRow${i} = row${i}.substring(${substringToDisplay}) + row${i}.substring(0, ${substringToDisplay})`);
+    for (let i = 0; i < arrToDisplay.length; i++) {
+        resultArr.push(arrToDisplay[i].substring(substringToDisplay) + arrToDisplay[i].substring(0, substringToDisplay));
     }
-    result = logRow1 + '\n' + logRow2 + '\n' + logRow3;
-    console.log(result);
+    resultArr.forEach(row => {
+        console.log(row);
+    })
+    // console.log(resultArr.join(''))
     scrollRate++;
     setTimeout(console.clear, 100);
 }
 
-const scrollingTimeDisplay = () => {
-    getLongTimeString();
+const scrollingTimeDisplay = (props) => {
+    getLongTimeString(props);
     scroll();
 }
 

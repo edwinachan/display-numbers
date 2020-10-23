@@ -1,12 +1,12 @@
 const updateWidth = (numbers, width) => {
     let result = [];
+    let underscoreIndex;
     numbers.forEach(numberPart => {
         if (width < 2) {
             result.push(numberPart);
             return numberPart;
         }
 
-        let underscoreIndex;
         
         numberPart.forEach((part, index) => {
             if (part.includes('_')) {
