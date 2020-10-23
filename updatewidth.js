@@ -1,30 +1,32 @@
-const updateWidth = (numbers, width) => {
-    let result = [];
-    let underscoreIndex = 1;
-    numbers.forEach(numberPart => {
-        if (width < 2) {
-            result.push(numberPart);
-            return numberPart;
-        }
+const addWidth = (itemPart, index, item, width) => {
+    let modifiedItemPart = itemPart.split('');
+    for (let i = 0; i < width - 1; i++) {
+        modifiedItemPart.splice(underscoreIndex, 0, '_');
+    }
+    item.splice(index, 1, modifiedItemPart.join(''));
+};
 
-        
-        numberPart.forEach((part, index) => {
-            if (part.includes('_')) {
-                let modifiedPart = part.split('');
-                underscoreIndex = modifiedPart.indexOf('_');
-                for (let i = 0; i < width - 1; i++) {
-                    modifiedPart.splice(underscoreIndex, 0, '_');
-                }
-                numberPart.splice(index, 1, modifiedPart.join(''));
+const addSpaces = (itemPart, index, item, width) => {
+    let modifiedItemPart = itemPart.split('');
+    for (let i = 0; i < width - 1; i++) {
+        modifiedItemPart.splice(underscoreIndex, 0, ' ');
+    }
+    item.splice(index, 1, modifiedItemPart.join(''));
+};
+
+let underscoreIndex = 1;
+
+const updateWidth = (arrayofItems, width) => {
+    let result = [];
+    arrayofItems.forEach(item => {
+        item.forEach((itemPart, index) => {
+            if (itemPart.includes('_')) {
+                addWidth(itemPart, index, item, width);
             } else {
-                let modifiedPart = part.split('');
-                for (let i = 0; i < width - 1; i++) {
-                    modifiedPart.splice(underscoreIndex, 0, ' ');
-                }
-                numberPart.splice(index, 1, modifiedPart.join(''));
+                addSpaces(itemPart, index, item, width);
             }
         })
-        result.push(numberPart);
+        result.push(item);
     })
     return result;
 }
