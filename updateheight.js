@@ -1,34 +1,41 @@
-const updateHeight = (numbers, height) => {
-    let result = [];
-    numbers.forEach(numberPart => {
-        if (height < 2) {
-            result.push(numberPart);
-            return numberPart;
+const addHeight = (part, index, height, arr) => {
+    let duplicateRow = part.slice().replace('_', ' ');
+        for (let i = 0; i < height - 1; i++) {
+            arr.splice(index + indexShift, 0, duplicateRow);
         }
+        indexShift += (height - 1);
+};
 
-        let indexShift = 0;
-        let updatedNumberPart = numberPart.slice();
+const handleDots = (height) => {
+    let arr = [];
+    for (let i = 0; i < (height * 2) + 1; i++) {
+        arr.push('    ');
+    }
+    arr.splice(height, 1, '  . ');
+    arr.splice(height * 2, 1, '  . ');
+    return arr;
+};
+
+let indexShift;
+
+const updateHeight = (arrayofItems, height) => {
+    let result = [];
+    arrayofItems.forEach(item => {
+        indexShift = 0;
+        let updatedItem = item.slice();
         
-        numberPart.forEach((part, index) => {
+        item.forEach((part, index) => {
             if (part.includes('|')) {
-                let duplicateRow = part.slice().replace('_', ' ');
-                for (let i = 0; i < height - 1; i++) {
-                    updatedNumberPart.splice(index + indexShift, 0, duplicateRow);
-                }
-                indexShift += (height - 1);
+                addHeight(part, index, height, updatedItem);
             }
             if (part.includes('.')) {
-                if (index < 2) {
-                    updatedNumberPart = [];
-                    for (let i = 0; i < (height * 2) + 1; i++) {
-                        updatedNumberPart.push('    ');
-                    }
-                    updatedNumberPart.splice(height, 1, '  . ');
-                    updatedNumberPart.splice(height * 2, 1, '  . ');
+                let isFirstDot = index < 2;
+                if (isFirstDot) {
+                    updatedItem = handleDots(height);
                 }
             }
         })
-        result.push(updatedNumberPart);
+        result.push(updatedItem);
     })
     return result;
 }
