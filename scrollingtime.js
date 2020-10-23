@@ -11,7 +11,7 @@ const addWhiteSpaces = arr => {
     })
 }
 
-const getLongTimeString = (props) => {
+const getLongTimeString = props => {
     arrToDisplay = [];
     timeArr = timeDisplay(props);
     addWhiteSpaces(timeArr);
@@ -20,17 +20,21 @@ const getLongTimeString = (props) => {
     }
 }
 
-const scroll = () => {
-    let resultArr = [];
-    let rowLength = arrToDisplay[0].length;
-    let substringToDisplay = scrollRate % rowLength;
+const getStringWithIndexShift = index => {
+    let arr = []
     for (let i = 0; i < arrToDisplay.length; i++) {
-        resultArr.push(arrToDisplay[i].substring(substringToDisplay) + arrToDisplay[i].substring(0, substringToDisplay));
+        arr.push(arrToDisplay[i].substring(index) + arrToDisplay[i].substring(0, index));
     }
-    resultArr.forEach(row => {
+    return arr
+};
+
+const scroll = () => {
+    let rowLength = arrToDisplay[0].length;
+    let substringIndex = scrollRate % rowLength;
+    let result = getStringWithIndexShift(substringIndex);
+    result.forEach(row => {
         console.log(row);
     })
-    // console.log(resultArr.join(''))
     scrollRate++;
     setTimeout(console.clear, 100);
 }

@@ -9,10 +9,6 @@ function getScrollingTimeDisplay() {
     scrollingTimeDisplay(props);
 };
 
-// scrollingTimeDisplay(props);
-
-// getScrollingTimeDisplay();
-
 setInterval(getScrollingTimeDisplay, 100);
 
 
