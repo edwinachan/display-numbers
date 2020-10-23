@@ -1,6 +1,6 @@
 const updateWidth = (numbers, width) => {
     let result = [];
-    let underscoreIndex;
+    let underscoreIndex = 1;
     numbers.forEach(numberPart => {
         if (width < 2) {
             result.push(numberPart);
