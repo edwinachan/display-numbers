@@ -21,9 +21,7 @@ const updateWidth = (arrayofItems, width) => {
     let result = [];
     arrayofItems.forEach(item => {
         item.forEach((itemPart, index) => {
-            props = {
-                itemPart, index, item, width
-            };
+            props = { itemPart, index, item, width };
             if (itemPart.includes('_')) {
                 addWidth(props);
             } else {
