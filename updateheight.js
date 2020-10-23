@@ -1,12 +1,12 @@
-const addHeight = (part, index, height, arr) => {
-    let duplicateRow = part.slice().replace('_', ' ');
+const addHeight = (itemPart, index, height, arr) => {
+    let duplicateRow = itemPart.slice().replace('_', ' ');
         for (let i = 0; i < height - 1; i++) {
             arr.splice(index + indexShift, 0, duplicateRow);
         }
         indexShift += (height - 1);
 };
 
-const handleDots = (height) => {
+const handleAllDots = (height) => {
     let arr = [];
     for (let i = 0; i < (height * 2) + 1; i++) {
         arr.push('    ');
@@ -24,14 +24,14 @@ const updateHeight = (arrayofItems, height) => {
         indexShift = 0;
         let updatedItem = item.slice();
         
-        item.forEach((part, index) => {
-            if (part.includes('|')) {
-                addHeight(part, index, height, updatedItem);
+        item.forEach((itemPart, index) => {
+            if (itemPart.includes('|')) {
+                addHeight(itemPart, index, height, updatedItem);
             }
-            if (part.includes('.')) {
-                let isFirstDot = index < 2;
+            if (itemPart.includes('.')) {
+                const isFirstDot = index < 2;
                 if (isFirstDot) {
-                    updatedItem = handleDots(height);
+                    updatedItem = handleAllDots(height);
                 }
             }
         })
