@@ -2,10 +2,10 @@ const updateSize = require('./updatesize');
 const buildResult = require('./buildresult');
 const generateRows= require('./generaterows');
 
-const segmentNumberDisplay = ({ input, height, width }) => {
-        let updatedInput = updateSize({ input, height, width });
+const segmentNumberDisplay = (props) => {
+        let updatedInput = updateSize(props);
         
-        let rows = generateRows(height);
+        let rows = generateRows(props.height);
     
         let resultArr = buildResult(updatedInput, rows);
 

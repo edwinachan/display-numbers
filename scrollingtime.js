@@ -11,9 +11,9 @@ const addWhiteSpaces = arr => {
     })
 }
 
-const getLongTimeString = ({ height, width }) => {
+const getLongTimeString = props => {
     arrToDisplay = [];
-    timeArr = timeDisplay({ height, width });
+    timeArr = timeDisplay(props);
     addWhiteSpaces(timeArr);
     for (let i = 0; i < timeArr.length; i++) {
         arrToDisplay.push(timeArr[i].join('').repeat(2));
@@ -39,8 +39,8 @@ const scroll = () => {
     setTimeout(console.clear, 100);
 }
 
-const scrollingTimeDisplay = ({ height, width }) => {
-    getLongTimeString({ height, width });
+const scrollingTimeDisplay = (props) => {
+    getLongTimeString(props);
     scroll();
 }
 
