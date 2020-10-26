@@ -2,10 +2,10 @@ const updateHeight = require('./updateheight');
 const updateWidth = require('./updatewidth');
 const convertInputToSegments = require('./convertInputToSegments');
 
-const updateSize = props => {
-    let input = convertInputToSegments(props.input);
-    let inputUpdatedHeight = updateHeight(input, props.height);
-    let inputUpdatedWidth = updateWidth(inputUpdatedHeight, props.width);
+const updateSize = ({input, height, width}) => {
+    let convertedInput = convertInputToSegments(input);
+    let inputUpdatedHeight = updateHeight(convertedInput, height);
+    let inputUpdatedWidth = updateWidth(inputUpdatedHeight, width);
     return inputUpdatedWidth;
 };
 
