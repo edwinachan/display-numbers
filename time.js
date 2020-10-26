@@ -9,7 +9,7 @@ const correctForSingleDigits = arr => {
     return arr;
 }
 
-const timeDisplay = props => {
+const timeDisplay = ({ height, width }) => {
     const hour = new Date().getHours().toString();
     const minute = new Date().getMinutes().toString();
     const seconds = new Date().getSeconds().toString();
@@ -21,8 +21,8 @@ const timeDisplay = props => {
 
     const timeProps = {
         input: time,
-        height: props.height,
-        width: props.width
+        height: height,
+        width: width
     };
 
     return segmentNumberDisplay(timeProps);
