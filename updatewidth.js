@@ -1,31 +1,30 @@
-const addWidth = props => {
-    let modifiedItemPart = props.itemPart.split('');
-    for (let i = 0; i < props.width - 1; i++) {
+const addWidth = ({ itemPart, index, item, width }) => {
+    let modifiedItemPart = itemPart.split('');
+    for (let i = 0; i < width - 1; i++) {
         modifiedItemPart.splice(underscoreIndex, 0, '_');
     }
-    props.item.splice(props.index, 1, modifiedItemPart.join(''));
+    item.splice(index, 1, modifiedItemPart.join(''));
 };
 
-const addSpaces = props => {
-    let modifiedItemPart = props.itemPart.split('');
-    for (let i = 0; i < props.width - 1; i++) {
+const addSpaces = ({ itemPart, index, item, width }) => {
+    let modifiedItemPart = itemPart.split('');
+    for (let i = 0; i < width - 1; i++) {
         modifiedItemPart.splice(underscoreIndex, 0, ' ');
     }
-    props.item.splice(props.index, 1, modifiedItemPart.join(''));
+    item.splice(index, 1, modifiedItemPart.join(''));
 };
 
 let underscoreIndex = 1;
-let props;
 
-const updateWidth = (arrayofItems, width) => {
+const updateWidth = ({ inputUpdatedHeight, width }) => {
     let result = [];
+    let arrayofItems = inputUpdatedHeight;
     arrayofItems.forEach(item => {
         item.forEach((itemPart, index) => {
-            props = { itemPart, index, item, width };
             if (itemPart.includes('_')) {
-                addWidth(props);
+                addWidth({ itemPart, index, item, width });
             } else {
-                addSpaces(props);
+                addSpaces({ itemPart, index, item, width });
             }
         })
         result.push(item);

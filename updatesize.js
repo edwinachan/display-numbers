@@ -4,8 +4,8 @@ const convertInputToSegments = require('./convertInputToSegments');
 
 const updateSize = ({input, height, width}) => {
     let convertedInput = convertInputToSegments(input);
-    let inputUpdatedHeight = updateHeight(convertedInput, height);
-    let inputUpdatedWidth = updateWidth(inputUpdatedHeight, width);
+    let inputUpdatedHeight = updateHeight({ convertedInput, height });
+    let inputUpdatedWidth = updateWidth({ inputUpdatedHeight, width });
     return inputUpdatedWidth;
 };
 
