@@ -13,7 +13,7 @@ const addWhiteSpaces = arr => {
 
 const getLongTimeString = ({ height, width }) => {
     arrToDisplay = [];
-    timeArr = timeDisplay({ height, width });
+    let timeArr = timeDisplay({ height, width });
     addWhiteSpaces(timeArr);
     for (let i = 0; i < timeArr.length; i++) {
         arrToDisplay.push(timeArr[i].join('').repeat(2));
